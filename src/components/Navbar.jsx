@@ -1,8 +1,20 @@
 "use client";
+import { authClient } from "@/lib/auth-client";
+import { Button } from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
 
 const Navbar = () => {
+
+  const userData = authClient.useSession();
+  const user = userData?.data?.user;
+
+  const handleGoogleSignout=async () => {
+
+    await authClient.signOut();
+
+
+  }
   return (
     <div className="border-b px-2">
 
@@ -36,14 +48,21 @@ const Navbar = () => {
         </ul>
 
         <div className="flex gap-4">
-          <ul className="flex items-center  text-sm">
+{  !user &&  <ul className="flex items-center  text-sm">
             <li>
               <Link href={"/signup"}>SignUp</Link>
             </li>
             <li>
               <Link href={"/signin"}>SignIn</Link>
             </li>
-          </ul>
+          </ul>}
+
+          {
+            user && <div className="flex items-center gap-3">
+              <p className="rounded-2xl bg-slate-600 px-2 text-white">{user.name[0]}</p>
+              <Button onClick={handleGoogleSignout} variant="danger">Sign Out </Button>
+            </div>
+          }
         </div>
       </nav>
     </div>
