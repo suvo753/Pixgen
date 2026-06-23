@@ -1,6 +1,6 @@
 import { TopGenerationCard } from '@/lib/data';
 import React from 'react';
-import PhotoCard from '../components/PhotoCard';
+import PhotoCard from '../../components/PhotoCard';
 
 const All_Photo = async() => {
 

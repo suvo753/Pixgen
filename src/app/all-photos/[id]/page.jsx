@@ -6,7 +6,6 @@ const PhotoDetails = async({params}) => {
     // console.log(id);
     const data = await TopGenerationCard();
     const expectedData = data.find(p=> p.id==id);
-    console.log(expectedData);
     return (
         <div>
 

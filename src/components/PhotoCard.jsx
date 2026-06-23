@@ -5,7 +5,6 @@ import { BiDownload } from "react-icons/bi";
 import { FaHeart } from "react-icons/fa";
 
 const PhotoCard = ({photo}) => {
-    console.log(photo);
     return (
         <Card className="rounded-xl m-2">
             <div className="relative w-full aspect-square">
